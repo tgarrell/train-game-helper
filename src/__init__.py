@@ -20,6 +20,7 @@ app.config.update( TEMPLATES_AUTO_RELOAD = True )
 # Import Routes
 #-------------------------------------------------------------------------------
 from . import api
+from . import ui
 
 #-------------------------------------------------------------------------------
 # Additional App Config

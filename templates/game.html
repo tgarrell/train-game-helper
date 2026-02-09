@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Game Helper - {{ game_map }} Map</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Train Game Helper - {{ game_map }} Map</h1>
+        
+        <div class="city-selection">
+            <h2>Select Cities</h2>
+            
+            <form id="cityForm">
+                <div class="city-input">
+                    <label for="origin">Origin City:</label>
+                    <select id="origin" name="origin" required>
+                        <option value="">Select a city</option>
+                    </select>
+                </div>
+                
+                <div class="city-input">
+                    <label for="destination">Destination City:</label>
+                    <select id="destination" name="destination" required>
+                        <option value="">Select a city</option>
+                    </select>
+                </div>
+                
+                <button type="button" id="swapButton">Swap Cities</button>
+                <button type="submit">Calculate Payout</button>
+                <button type="button" id="resetMapButton">Reset Map</button>
+                <script>
+                    document.getElementById('resetMapButton').addEventListener('click', function() {
+                        // Clear the selected_map cookie
+                        document.cookie = 'selected_map=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+                        // Redirect to home page
+                        window.location.href = '/';
+                    });
+                </script>
+            </form>
+        </div>
+        
+        <div id="payout-result" class="payout-result hidden">
+            <h3>Payout Result</h3>
+            <p id="payout-route"></p>
+            <p id="payout-text"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
