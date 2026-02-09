@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Game Helper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Train Game Helper</h1>
+        
+        <div class="map-selection">
+            <h2>Select Map</h2>
+            <p>Please choose a map to begin:</p>
+            
+            <form id="mapForm" action="/ui/game" method="get">
+                <button type="submit" name="game_map" value="US" class="map-button">US Map</button>
+                <button type="submit" name="game_map" value="GB" class="map-button">GB Map</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
